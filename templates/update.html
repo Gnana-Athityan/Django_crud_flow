@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  {% load static %}
+  <link rel='stylesheet' href={% static 'bootstrap-5.2.0-dist/css/bootstrap.min.css' %}>
+  <link rel='stylesheet' href={% static 'base.css' %}>
+</head>
+
+<body>
+  <h1 class="text-center my-4">Gnana's Daily List</h1>
+  <form action='/update/{{task.id}}' method='post'>
+    {% csrf_token %}
+    
+    <div class="container">
+      <div class="mb-3 my-4">
+        <label for="Name" class="form-label">Name:</label>
+        <input type="text" class="form-control  form-control-lg" id="name" placeholder="Name" value="{{task.Name}}" name= "name">
+      </div>
+      <div class="mb-3 py-3">
+        <label for="Age" class="form-label">Age:</label>
+        <input type="number" class="form-control  form-control-lg" id="age" placeholder="Age" value="{{task.Age}}"name= "age">
+      </div>
+      <div class="mb-3 py-3">
+        <label for="Time" class="form-label">Time before which you should finish the task:</label>
+        <input type="time" class="form-control  form-control-lg" id="time" placeholder="time" value="{{task.Time}}" name= "time">
+      </div>
+      <div class="mb-3 py-3">
+        Enter the task desc:<textarea class="form-control  form-control-lg " id="description" rows="3"
+        placeholder="Description" value="{{task.Desc}}" name="description"></textarea>
+      </div>
+      <div class="mb-3 py-3">
+        <button type="Submit" value="Update" class="btn btn-outline-primary">Update</button>
+      
+    </div>
+  </div>
+</form>
+
+</body>
+
+</html>

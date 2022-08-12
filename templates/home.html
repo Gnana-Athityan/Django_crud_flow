@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  {% load static %}
+  <link rel='stylesheet' href={% static 'bootstrap-5.2.0-dist/css/bootstrap.min.css' %}>
+  <link rel='stylesheet' href={% static 'base.css' %}>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid text-white">
+      <a class="navbar-brand" href="">List</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" id="home" aria-current="page" href="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/task" >Task</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <h1 class="text-center my-4">Gnana's Daily List</h1>
+  <form action='/' method='post'>
+    {% csrf_token %}
+    
+    <div class="container">
+      <div class="mb-3 my-4">
+        <label for="Name" class="form-label">Name:</label>
+        <input type="text" class="form-control  form-control-lg" id="name" placeholder="Name" name= "name">
+      </div>
+      <div class="mb-3 py-3">
+        <label for="Age" class="form-label">Age:</label>
+        <input type="number" class="form-control  form-control-lg" id="age" placeholder="Age" name= "age">
+      </div>
+      <div class="mb-3 py-3">
+        <label for="Time" class="form-label">Time before which you should finish the task:</label>
+        <input type="time" class="form-control  form-control-lg" id="time" placeholder="time" name= "time">
+      </div>
+      <div class="mb-3 py-3">
+        Enter the task desc:<textarea class="form-control  form-control-lg " id="description" rows="3"
+        placeholder="Description" name="description"></textarea>
+      </div>
+      <div class="mb-3 py-3 d-grid gap-2 col-2 mx-auto">
+        <label for="Submit" class="form-label"></label>
+        <input type = "submit" class="btn btn-outline-success btn-lg " id="submit" role="button" >
+      </div>
+
+      
+    </div>
+  </div>
+</form>
+
+</body>
+
+</html>
